@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book an Appointment — Marium Dental Surgery</title>
+<meta name="description" content="Book a dental appointment at Marium Dental Surgery, Gulzar-e-Hijri, Karachi.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/services.css">
+<link rel="stylesheet" href="css/booking.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"style="margin-left: -30px;margin-top:-5px;">
+        <path d="M12 2C8.5 2 6 4.2 6 7.5c0 2.3 0.9 3.7 1.6 5.9.5 1.6.7 4.6 1.6 6.6.4.9 1 1.5 1.8 1.5.9 0 1.3-.8 1.5-1.8.3-1.5.3-3.3 1.5-3.3s1.2 1.8 1.5 3.3c.2 1 .6 1.8 1.5 1.8.8 0 1.4-.6 1.8-1.5.9-2 1.1-5 1.6-6.6.7-2.2 1.6-3.6 1.6-5.9C18 4.2 15.5 2 12 2Z" stroke="#14495C" stroke-width="1.4" fill="#DCEBF4"/>
+      </svg>
+      Marium Dental Surgery
+    </a>
+    <nav class="nav-links">
+      <a href="services.html">Services</a>
+      <a href="index.html#gallery">Clinic</a>
+      <a href="index.html#why-us">Why Us</a>
+      <a href="index.html#hours">Hours &amp; Location</a>
+    </nav>
+    <div class="nav-cta">
+      <span class="nav-phone">+92 3706418709</span>
+      <a class="btn btn-primary" href="booking.html">Book Appointment</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb reveal"><a href="index.html">Home</a> <span>/</span> Book an Appointment</div>
+    <div class="eyebrow-line reveal">Book Online</div>
+    <h1 class="reveal">Book your appointment</h1>
+    <p class="reveal">Fill in your details below and we'll confirm your slot. For urgent requests, WhatsApp or call us directly.</p>
+  </div>
+</section>
+ 
+<section style="padding-top:0;">
+  <div class="wrap booking-layout">
+ 
+    <!-- Booking form -->
+    <div id="booking-form-wrap" class="reveal">
+      <form id="booking-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="b-name">Full name *</label>
+            <input type="text" id="b-name" name="name" required>
+            <span class="field-error">Please enter your name.</span>
+          </div>
+          <div class="field">
+            <label for="b-phone">Phone number *</label>
+            <input type="tel" id="b-phone" name="phone" placeholder="03XXXXXXXXX" inputmode="numeric" required>
+            <span class="field-error" id="b-phone-error">Please enter an 11-digit phone number (e.g. 03001234567).</span>
+          </div>
+          <div class="field full">
+            <label for="b-service">Service *</label>
+            <select id="b-service" name="service" required></select>
+          </div>
+          <div class="field full">
+            <label for="b-doctor">Preferred doctor (optional)</label>
+            <select id="b-doctor" name="doctor">
+              <option value="">No preference</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="b-date">Preferred date *</label>
+            <input type="date" id="b-date" name="date" required>
+            <span class="field-error" id="b-date-error">We're closed Fridays and Sundays — please pick another date.</span>
+          </div>
+          <div class="field">
+            <label for="b-time">Preferred time *</label>
+            <select id="b-time" name="time" required>
+              <option value="">Select a time</option>
+              <option>6:30 PM</option>
+              <option>7:00 PM</option>
+              <option>7:30 PM</option>
+              <option>8:00 PM</option>
+              <option>8:30 PM</option>
+              <option>9:00 PM</option>
+              <option>9:30 PM</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="b-notes">Notes (optional)</label>
+            <textarea id="b-notes" name="notes" placeholder="Tell us anything that would help — symptoms, previous visits, etc."></textarea>
+          </div>
+          <div class="field full">
+            <button type="submit" class="btn btn-primary">Request Appointment</button>
+          </div>
+        </div>
+      </form>
+    </div>
+ 
+    <!-- Success state (shown after booking) -->
+    <div id="booking-success" class="booking-success">
+      <div class="check-badge">✓</div>
+      <h2>Appointment requested</h2>
+      <p>We've received your request. Confirm it instantly on WhatsApp, or we'll reach out to confirm your slot.</p>
+      <div class="booking-summary" id="booking-summary"></div>
+      <a class="btn btn-primary" id="whatsapp-confirm-btn" target="_blank" rel="noopener" style="width:100%; justify-content:center; margin-bottom:10px;">Confirm on WhatsApp</a>
+      <button class="btn btn-outline" id="book-another-btn" style="width:100%; justify-content:center;">Book Another Appointment</button>
+    </div>
+ 
+    <!-- Sidebar -->
+    <aside class="booking-info reveal">
+      <h3>Clinic Hours</h3>
+      <ul>
+        <li><strong>Mon, Tue, Wed, Thu, Sat</strong>6:30 PM – 10:00 PM</li>
+        <li><strong>Friday &amp; Sunday</strong>Closed</li>
+      </ul>
+      <h3>Prefer to book directly?</h3>
+      <a class="btn btn-primary" href="https://wa.me/923343748680" target="_blank" rel="noopener">WhatsApp Us</a>
+      <a class="btn btn-outline" href="tel:+923343748680">Call +92 334 3748680</a>
+    </aside>
+ 
+  </div>
+</section>
+ 
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Marium Dental Surgery</h4>
+        <p>General dentistry in Gulzar-e-Hijri, Karachi. Healing happens here.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="booking.html">Book Appointment</a></li>
+          <li><a href="index.html#hours">Hours &amp; Location</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+923706418709">+92 370 6418709</a></li>
+          <li><a href="https://wa.me/923706418709" target="_blank" rel="noopener">WhatsApp Us</a></li>
+          <li>Sector 44, Gulzar-e-Hijri, Karachi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Marium Dental Surgery. All rights reserved.</span>
+      <span>Open Mon–Thu &amp; Sat, 6:30–10 PM · Closed Fri &amp; Sun</span>
+    </div>
+  </div>
+</footer>
+ 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/data-store.js"></script>
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>
+ 

@@ -1,0 +1,155 @@
+/* ============================================
+   Services page — extends style.css
+   ============================================ */
+
+.page-hero {
+  padding: 150px 0 70px;
+  background: linear-gradient(180deg, #EAF2F6 0%, var(--marble) 100%);
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.breadcrumb a { color: var(--teal); }
+.breadcrumb a:hover { color: var(--green); }
+.breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+.page-hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.1rem);
+  margin: 6px 0 16px;
+  max-width: 14ch;
+}
+
+.page-hero p { font-size: 1.05rem; max-width: 52ch; }
+
+.nav-links a.active { color: var(--green); }
+
+/* ---------- Layout ---------- */
+.services-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .services-detail-layout { grid-template-columns: 260px 1fr; }
+}
+
+/* ---------- Sticky jump nav ---------- */
+.services-nav {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .services-nav {
+    display: block;
+    position: sticky;
+    top: 110px;
+  }
+}
+
+.services-nav-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+.services-nav ul { list-style: none; display: flex; flex-direction: column; gap: 2px; margin-bottom: 26px; }
+
+.services-nav a {
+  display: block;
+  padding: 10px 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  border-left: 2px solid rgba(20,73,92,0.12);
+  padding-left: 16px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.services-nav a:hover { color: var(--teal); border-color: var(--teal); }
+
+.services-nav-cta { width: 100%; justify-content: center; }
+
+/* ---------- Procedures ---------- */
+.procedures { display: flex; flex-direction: column; gap: 0; }
+
+.procedure {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 24px;
+  padding: 44px 0;
+  border-bottom: 1px solid rgba(20, 73, 92, 0.1);
+}
+
+.procedure:first-child { padding-top: 0; }
+.procedure:last-child { border-bottom: none; }
+
+.procedure-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--sky-soft);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.procedure-icon svg { width: 32px; height: 32px; }
+
+.procedure-num {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--sky);
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.procedure-body h2 { font-size: 1.5rem; margin-bottom: 12px; }
+.procedure-body > p { font-size: 0.98rem; max-width: 62ch; margin-bottom: 18px; }
+
+.procedure-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.procedure-includes li {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  padding-left: 20px;
+  position: relative;
+}
+
+.procedure-includes li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.procedure-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.procedure-meta div { font-size: 0.85rem; color: var(--ink-soft); }
+.procedure-meta strong {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--teal-deep);
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 560px) {
+  .procedure { grid-template-columns: 1fr; }
+  .procedure-icon { margin-bottom: 8px; }
+}

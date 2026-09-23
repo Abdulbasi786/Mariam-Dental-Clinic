@@ -1,0 +1,125 @@
+/* ============================================
+   Booking + Admin — extends style.css / services.css
+   ============================================ */
+
+/* ---------- Forms (shared) ---------- */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 0.88rem; font-weight: 600; color: var(--teal-deep); }
+.field input, .field select, .field textarea {
+  padding: 12px 15px;
+  border: 1px solid rgba(20,73,92,0.18);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  background: var(--white);
+  color: var(--ink);
+}
+.field textarea { resize: vertical; min-height: 100px; }
+.field-error { font-size: 0.8rem; color: #B0413E; display: none; }
+.field-error.show { display: block; }
+
+/* ---------- Booking page ---------- */
+.booking-layout { display: grid; grid-template-columns: 1fr; gap: 44px; margin-top: 10px; }
+@media (min-width: 960px) { .booking-layout { grid-template-columns: 1.5fr 1fr; } }
+
+.booking-info {
+  background: var(--white);
+  border: 1px solid rgba(20,73,92,0.1);
+  border-radius: var(--radius);
+  padding: 28px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+.booking-info h3 { font-size: 1.1rem; margin-bottom: 14px; }
+.booking-info ul { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.booking-info li { font-size: 0.9rem; color: var(--ink-soft); }
+.booking-info li strong { display: block; color: var(--teal-deep); font-family: var(--font-display); font-size: 0.95rem; }
+.booking-info .btn { width: 100%; justify-content: center; margin-bottom: 10px; }
+
+.booking-success {
+  display: none;
+  background: var(--white);
+  border: 1px solid rgba(62,156,124,0.35);
+  border-radius: var(--radius);
+  padding: 34px;
+  text-align: left;
+}
+.booking-success.show { display: block; }
+.booking-success .check-badge {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--green); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; margin-bottom: 16px;
+}
+.booking-success h2 { margin-bottom: 8px; }
+.booking-summary { margin: 18px 0; padding: 16px 0; border-top: 1px solid rgba(20,73,92,0.1); border-bottom: 1px solid rgba(20,73,92,0.1); }
+.booking-summary div { display: flex; justify-content: space-between; font-size: 0.9rem; padding: 5px 0; color: var(--ink-soft); }
+.booking-summary div strong { color: var(--teal-deep); font-weight: 600; }
+
+/* ---------- Admin: gate ---------- */
+.admin-gate {
+  max-width: 380px; margin: 0 auto;
+  background: var(--white); border: 1px solid rgba(20,73,92,0.12);
+  border-radius: var(--radius); padding: 34px; text-align: left;
+}
+.admin-gate h2 { font-size: 1.3rem; margin-bottom: 8px; }
+.admin-gate p { font-size: 0.88rem; margin-bottom: 20px; }
+.admin-gate .field { margin-bottom: 16px; }
+.admin-gate .btn { width: 100%; justify-content: center; }
+.admin-gate-error { color: #B0413E; font-size: 0.85rem; margin-top: 10px; display: none; }
+.admin-gate-error.show { display: block; }
+
+.admin-warning {
+  background: #FBF2E4; border: 1px solid #E4C98A; color: #6B5320;
+  border-radius: var(--radius); padding: 14px 18px; font-size: 0.85rem;
+  margin-bottom: 30px;
+}
+
+/* ---------- Admin: dashboard ---------- */
+#admin-dashboard { display: none; }
+#admin-dashboard.show { display: block; }
+
+.admin-tabs { display: flex; gap: 8px; border-bottom: 1px solid rgba(20,73,92,0.12); margin-bottom: 34px; flex-wrap: wrap; }
+.admin-tab {
+  padding: 12px 20px; font-size: 0.92rem; font-weight: 600;
+  color: var(--ink-soft); border: none; background: none; cursor: pointer;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.admin-tab.active { color: var(--teal-deep); border-bottom-color: var(--green); }
+
+.admin-panel { display: none; }
+.admin-panel.active { display: block; }
+
+.admin-panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 12px; }
+.admin-panel-head h2 { font-size: 1.3rem; margin: 0; }
+
+.admin-table { width: 100%; border-collapse: collapse; background: var(--white); border: 1px solid rgba(20,73,92,0.1); border-radius: var(--radius); overflow: hidden; }
+.admin-table th, .admin-table td { text-align: left; padding: 13px 16px; font-size: 0.88rem; border-bottom: 1px solid rgba(20,73,92,0.08); }
+.admin-table th { background: var(--sky-soft); color: var(--teal-deep); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table td.actions { display: flex; gap: 8px; }
+
+.admin-table-wrap { overflow-x: auto; }
+
+.btn-small { padding: 7px 14px; font-size: 0.82rem; }
+.btn-danger { background: #FBEAE9; color: #B0413E; border-color: #F0C5C2; }
+.btn-danger:hover { background: #B0413E; color: #fff; }
+
+.status-badge { display: inline-block; padding: 3px 11px; border-radius: 999px; font-size: 0.76rem; font-weight: 600; }
+.status-pending { background: #FBF2E4; color: #8A6A1F; }
+.status-confirmed { background: var(--sky-soft); color: var(--teal-deep); }
+
+.admin-add-form {
+  background: var(--white); border: 1px solid rgba(20,73,92,0.1);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 24px;
+  display: none;
+}
+.admin-add-form.show { display: block; }
+.admin-add-form h3 { font-size: 1.05rem; margin-bottom: 16px; }
+.admin-add-form .form-actions { display: flex; gap: 10px; margin-top: 6px; grid-column: 1 / -1; }
+
+.empty-state { padding: 40px 20px; text-align: center; color: var(--ink-soft); font-size: 0.9rem; }
